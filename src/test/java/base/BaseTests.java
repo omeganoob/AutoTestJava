@@ -23,7 +23,7 @@ public class BaseTests {
 
     @AfterEach
     public void tearDown() {
-        driver.quit();
+        driver.close();
     }
 
     public static void main(String[] agrs){
