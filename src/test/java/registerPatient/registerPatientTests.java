@@ -43,7 +43,7 @@ public class registerPatientTests extends BaseTests {
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "Quang", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.clickG();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         Thread.sleep(5000);
     }
@@ -55,19 +55,33 @@ public class registerPatientTests extends BaseTests {
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "Quang", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("");
         registerPatientPage.clickNextButton();
         Thread.sleep(5000);
     }
 
     @Test
-    @DisplayName("TC11-Invalid Day")
+    @DisplayName("TC11-Empty Date")
+    public void testEmptyDate() throws InterruptedException {
+        HomePage homePage = loginPage.loginToHomePage();
+        RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
+        registerPatientPage.setPatientName("Nguyen", "", "Chung");
+        registerPatientPage.clickNextButton();
+        registerPatientPage.setGender("Male");
+        registerPatientPage.clickNextButton();
+        // Don't fill anything
+        registerPatientPage.clickNextButton();
+        Thread.sleep(5000);
+    }
+
+    @Test
+    @DisplayName("TC12-Invalid Day")
     public void testInvalidDate() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setDayField("32");
         registerPatientPage.setMonthField(("1"));
@@ -77,13 +91,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC012-Unselected Month")
+    @DisplayName("TC013-Unselected Month")
     public void testUnselectedMonth() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
 //        registerPatientPage.setBirthdateDayField("9","", "2021");
         registerPatientPage.setDayField("32");
@@ -94,13 +108,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC013-Invalid Year")
+    @DisplayName("TC014-Invalid Year")
     public void testInvalidYear() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setBirthdateDayField("9","2", "0000");
         registerPatientPage.clickNextButton();
@@ -108,13 +122,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC014-Invalid Year")
+    @DisplayName("TC015-Invalid Year")
     public void testInvalidDateInput() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setBirthdateDayField("a","2", "200a");
         registerPatientPage.clickNextButton();
@@ -122,13 +136,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC015-Valid Date but in the future")
+    @DisplayName("TC016-Valid Date but in the future")
     public void testFutureDate() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setBirthdateDayField("15","12", "2022");
         registerPatientPage.clickNextButton();
@@ -136,13 +150,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC016-Empty date and filled estimate")
+    @DisplayName("TC017-Empty date and filled estimate")
     public void testFilledEstimate() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setEstimatedTime("15","8");
         registerPatientPage.clickNextButton();
@@ -150,13 +164,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC017-Empty date and filled estimate but month greater than 11")
+    @DisplayName("TC018-Empty date and filled estimate but month greater than 11")
     public void testInvalidEstimateMonth() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setEstimatedTime("15","12");
         registerPatientPage.clickNextButton();
@@ -164,13 +178,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC017-Invalid Estimate")
+    @DisplayName("TC019-Invalid Estimate")
     public void testInvalidEstimate() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setEstimatedTime("-1","2");
         registerPatientPage.clickNextButton();
@@ -178,13 +192,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC018-Empty Address")
+    @DisplayName("TC020-Empty Address")
     public void testEmptyAddress() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "Quang", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setEstimatedTime("21","10");
         registerPatientPage.clickNextButton();
@@ -193,13 +207,13 @@ public class registerPatientTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("TC019-Invalid Phone number format")
+    @DisplayName("TC021-Invalid Phone number format")
     public void testInvalidPhoneNumber() throws InterruptedException {
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
         registerPatientPage.setPatientName("Nguyen", "Quang", "Chung");
         registerPatientPage.clickNextButton();
-//        registerPatientPage.setGender();
+        registerPatientPage.setGender("Male");
         registerPatientPage.clickNextButton();
         registerPatientPage.setEstimatedTime("21","10");
         registerPatientPage.clickNextButton();

@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegisterPatientPage {
     WebDriver driver;
@@ -13,7 +13,7 @@ public class RegisterPatientPage {
 
     private By unidentifiedBox = By.id("checkbox-unknown-patient");
 
-    private By genderField = By.id("gender-field");
+    private By genderField = By.name("gender");
 
     private By birthdateDayField = By.id("birthdateDay-field");
     private By birthdateMonthField = By.id("birthdateMonth-field");
@@ -41,7 +41,8 @@ public class RegisterPatientPage {
     }
 
     public void setGender(String gender) {
-//        Select dropdown = new Select(driver.findElement(By.id("gender-field")));
+        Select dropdown = new Select(driver.findElement(genderField));
+        dropdown.selectByVisibleText(gender);
     }
 
     public void clickNextButton() {
