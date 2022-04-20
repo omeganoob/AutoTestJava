@@ -9,11 +9,11 @@ public class LoginTests extends BaseTests {
     @DisplayName("TC01-Login successfully")
     public void testLoginSuccessfully() throws InterruptedException{
         loginPage.setUserName("Admin");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         loginPage.setPassword("Admin123");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         loginPage.clickInpatientButton();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         loginPage.clickLoginButton();
      
     }
