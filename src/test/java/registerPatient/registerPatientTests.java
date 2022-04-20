@@ -9,7 +9,7 @@ import pages.RegisterPatientPage;
 public class registerPatientTests extends BaseTests {
     @Test
     @DisplayName("TC01-Logout successfully")
-    public void testLogoutSuccessfully(){
+    public void testLogoutSuccessfully() throws InterruptedException{
         HomePage homePage = loginPage.loginToHomePage();
         RegisterPatientPage registerPatientPage = homePage.redirectToRegisterPatient();
 
