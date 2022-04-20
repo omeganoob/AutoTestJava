@@ -9,10 +9,12 @@ import pages.HomePage;
 public class viewThePatient extends BaseTests {
     @Test
     @DisplayName("TC01-View Patient Record")
-    public void viewThePatientRecord(){
+    public void viewThePatientRecord() throws InterruptedException{
         HomePage homePage = loginPage.loginToHomePage();
         FindPatientRecordPage findPatientRecordPage = homePage.redirectToFindPatientRecord();
         findPatientRecordPage.setInputField("");
+        Thread.sleep(1000);
         findPatientRecordPage.viewThePage();
+        Thread.sleep(1000);
     }
 }

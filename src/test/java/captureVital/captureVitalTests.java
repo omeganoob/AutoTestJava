@@ -9,10 +9,12 @@ import pages.HomePage;
 public class captureVitalTests extends BaseTests {
     @Test
     @DisplayName("TC01-Capture Vital")
-    public void viewCaptureVital(){
+    public void viewCaptureVital() throws InterruptedException{
         HomePage homePage = loginPage.loginToHomePage();
         FindCaptureVitalPage findCaptureVitalPage = homePage.redirectToFindCaptureVital();
-        findCaptureVitalPage.setInputField("");
+        findCaptureVitalPage.setInputField("100");
+        Thread.sleep(1000);
         findCaptureVitalPage.viewThePage();
+        Thread.sleep(2000);
     }
 }
